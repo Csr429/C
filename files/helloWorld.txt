@@ -1,0 +1,56 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+void processar_arquivo(const char *nome_origem, FILE *destino);
+
+int main()
+{
+    system("cls");
+    const char *arquivo1 = "C:\\Users\\csrlm\\Documents\\Repositories\\Estudos\\C\\files\\hello.txt";
+    const char *arquivo2 = "C:\\Users\\csrlm\\Documents\\Repositories\\Estudos\\C\\files\\world.txt";
+    const char *arquivo_saida = "C:\\Users\\csrlm\\Documents\\Repositories\\Estudos\\C\\files\\helloWorld.txt";
+
+    FILE *saida;
+
+    saida = fopen(arquivo_saida, "a+");
+    if (saida == NULL)
+    {
+        printf("\n Não foi possível ler o arquivo de saida");
+        return 1;
+    }
+
+    printf("\n iniciando a combinação de arquivos...");
+
+    printf("\nLendo e processando o primeiro arquivo");
+    processar_arquivo(arquivo1, saida);
+
+    printf("\n Lendo e processando o segundo arquivo");
+    processar_arquivo(arquivo2, saida);
+
+    fclose(saida);
+
+    printf("\n Processo concluido com sucesso :)");
+    printf("\n O conteúdo de %s e %s foi concatenado em %s!", arquivo1, arquivo2, arquivo_saida);
+
+    return 0;
+}
+
+void processar_arquivo(const char *nome_origem, FILE *destino)
+{
+    FILE *origem = fopen(nome_origem, "r");
+    int caractere;
+
+    if (origem == NULL)
+    {
+        printf("\n Erro ao abrir o arquivo");
+        return;
+    }
+    while ((caractere = fgetc(origem)) != EOF)
+    {
+        fputc(caractere, destino);
+    }
+
+    fclose(origem);
+
+    printf("\n fim do processamento do arquivo");
+}
