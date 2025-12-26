@@ -19,17 +19,14 @@ int main()
 
 int function(int arry[], int x, int y)
 {
-        if( x == 0)
-        return y ;
-        else
-            x>(x-1)? return function(arry, x-2):return function(arry, x-2)
-        return 
+    if (x == 0)
+    return y;
+    else
+    {
+        if (array[x] < array[y])
+        {
+            return 
+        }
+
+    }
 }
-
-
-/*
-x>(x-1)?x:(x-1);
-
-
-
-*/
