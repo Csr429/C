@@ -4,34 +4,35 @@
 
 int main()
 {
-    int l = 0, c = 0, **vet; 
+
+    int **vet;
 
     system("cls");
     srand(time(NULL));
-    
-    pritnf("\n Por favor, insira o numero de colunas que a matriz devera ter: ");
-    scanf("%d", &c);
 
-    printf("\n Por favor insira o numero de linhas que a matriz devera ter: ");
-    scanf("%d", &l);
+    vet = calloc(4, sizeof(int*));
 
-    for(int i = 0; i<l; i++)
+    for (int i = 0; i < 4; i++)
     {
-       **vet = calloc(c, sizeof(int));
+        vet[i] = calloc(6, sizeof(int));
     }
 
-    // preenchendo
-    for (int i = 0; i<l; i++)
+    for (int i = 0; i < 4; i++)
     {
-        for(int x = 0; x<c; x++)
+        for (int j = 0; j < 6; j++)
         {
-            
+            vet [i][j] = rand() % 100;
         }
     }
 
-
-
-     
+for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            printf("%d ", vet[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
