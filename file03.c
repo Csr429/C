@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void leitura(char nome);
-void escrita(char nome);
+void leitura(char *nome);
+void escrita(char *nome);
 
 int main()
 {
@@ -10,18 +10,17 @@ int main()
     char arquivo[] = {"..\\files\\file03.txt"};
     system("cls");
 
-
     escrita(arquivo);
     leitura(arquivo);
 
     return 0;
 }
 
-void escrita(char nome)
+void escrita(char *nome)
 {
     FILE *file;
     char text;
-    file = fopen("nome", "w");
+    file = fopen(nome, "w");
     if (file)
     {
         printf("\n Por favor, insira um texto e pressione enter no final: \n");
@@ -32,8 +31,6 @@ void escrita(char nome)
             fputc(text, file);
             scanf("%c", &text);
         }
-
-        fclose(file);
     }
     else
     {
@@ -43,24 +40,24 @@ void escrita(char nome)
     fclose(file);
 }
 
-void leitura(char nome)
+void leitura(char *nome)
 {
     FILE *file;
     char text;
 
-    file = fopen("nome", "r");
+    file = fopen(nome, "r");
 
     if (file)
     {
         while (!feof(file))
         {
             text = fgetc(file);
-            pritnf("%c", text);
+            printf("%c", text);
         }
     }
     else
     {
-        pritnf("\n Erro ao abrir o arquivo!");
+        printf("\n Erro ao abrir o arquivo!");
     }
 
     fclose(file);
