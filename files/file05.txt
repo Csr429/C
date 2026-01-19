@@ -1,0 +1,3 @@
+Ana 22 1.70  
+Beatriz 19 0.65 
+Claudia 25 1.75 
