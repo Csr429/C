@@ -10,7 +10,7 @@ int main()
     system("cls");
 
     char arquivo[] = {"..\\files\\file05.txt"};
-    // escreve(arquivo);
+    escreve(arquivo);
     le(arquivo);
 }
 
