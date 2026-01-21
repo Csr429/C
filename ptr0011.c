@@ -23,6 +23,6 @@ int main()
     for (int i = 0; i < 10; i++)
     {
         printf("\nteste\n ");
-        printf("%d: %d", i, **c);
+        printf("%d: %d", i, *(*(c)+i));
     }
 }
